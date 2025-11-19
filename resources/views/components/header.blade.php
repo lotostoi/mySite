@@ -3,8 +3,8 @@
         <div class="flex items-center justify-between h-20">
             <div class="flex-shrink-0">
                 <a class="flex flex-col" href="#">
-                    <span class="text-2xl font-heading font-bold text-soft-brown tracking-tight">Анна Волкова</span>
-                    <span class="text-sm text-slate-500">Клинический психолог</span>
+                    <span class="text-2xl font-heading font-bold text-soft-brown tracking-tight">Александр</span>
+                    <span class="text-sm text-slate-500">Психолог</span>
                 </a>
             </div>
             <nav class="hidden md:flex items-center space-x-8">
@@ -18,4 +18,3 @@
         </div>
     </div>
 </header>
-
