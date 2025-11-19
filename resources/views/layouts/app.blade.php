@@ -40,7 +40,15 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
         }
+
+        * {
+            transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
     </style>
+
+    <link href="{{ asset('css/classic-theme.css') }}" rel="stylesheet"/>
 
     @stack('styles')
 </head>
@@ -49,6 +57,7 @@
         @yield('content')
     </div>
 
+    <script src="{{ asset('js/theme.js') }}"></script>
     @stack('scripts')
 </body>
 </html>

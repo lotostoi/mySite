@@ -1,0 +1,139 @@
+/* Classic Theme Overrides */
+.classic-theme {
+    /* Disable gradients and fancy effects */
+}
+
+/* Header */
+.classic-theme header {
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.classic-theme header span[class*="bg-gradient"] {
+    background: none !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: inherit !important;
+    background-clip: text !important;
+    color: #92400e !important;
+}
+
+.classic-theme header .group span.absolute {
+    display: none !important;
+}
+
+/* Hero Section */
+.classic-theme section[class*="bg-gradient-to"] {
+    background: #fef3c7 !important;
+}
+
+.classic-theme section .absolute.inset-0 {
+    display: none !important;
+}
+
+.classic-theme h1[class*="bg-gradient"] {
+    background: none !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: inherit !important;
+    background-clip: text !important;
+    color: #92400e !important;
+}
+
+.classic-theme h2[class*="bg-gradient"] {
+    background: none !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: inherit !important;
+    background-clip: text !important;
+    color: #92400e !important;
+}
+
+.classic-theme h3[class*="bg-gradient"] {
+    background: none !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: inherit !important;
+    background-clip: text !important;
+    color: #92400e !important;
+}
+
+.classic-theme p[class*="bg-gradient"] {
+    background: none !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: inherit !important;
+    background-clip: text !important;
+    color: #d97706 !important;
+}
+
+/* Cards and Boxes */
+.classic-theme [class*="bg-gradient-to"] {
+    background: #ffffff !important;
+}
+
+.classic-theme [class*="shadow-2xl"] {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.classic-theme [class*="shadow-xl"] {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.classic-theme [class*="rounded-2xl"],
+.classic-theme [class*="rounded-3xl"] {
+    border-radius: 0.5rem !important;
+}
+
+.classic-theme [class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+}
+
+/* Buttons */
+.classic-theme a[class*="bg-gradient-to-r"] {
+    background: #d97706 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+.classic-theme a[class*="bg-gradient-to-r"]:hover {
+    background: #b45309 !important;
+    transform: scale(1.05) !important;
+}
+
+.classic-theme button[class*="bg-gradient-to-r"] {
+    background: #d97706 !important;
+}
+
+/* Icon backgrounds */
+.classic-theme [class*="bg-gradient-to-br"][class*="p-3"],
+.classic-theme [class*="bg-gradient-to-br"][class*="p-4"] {
+    background: #fbbf24 !important;
+}
+
+/* Services cards */
+.classic-theme #services > div[class*="grid"] > div {
+    background: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+}
+
+/* About section cards */
+.classic-theme #about > div[class*="grid"] > div {
+    background: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+}
+
+/* Footer */
+.classic-theme footer {
+    background: #f1f5f9 !important;
+}
+
+/* Hover effects - reduce translations */
+.classic-theme *:hover {
+    transform: none !important;
+}
+
+.classic-theme .group-hover\/card\:opacity-100,
+.classic-theme .group-hover\:opacity-100,
+.classic-theme .group-hover\/btn\:opacity-100 {
+    opacity: 0 !important;
+}
+
+/* Smooth transition for theme switch */
+.classic-theme * {
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
+}
