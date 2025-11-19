@@ -69,8 +69,9 @@
         </div>
     </div>
 
-    <!-- Мои кризисы -->
-    <div class="grid md:grid-cols-2 gap-8 mb-8">
+    <!-- Кризисы и Опыт в 2 колонки -->
+    <div class="grid lg:grid-cols-2 gap-8 mb-8">
+        <!-- Мои кризисы -->
         <div class="bg-white p-8 rounded-xl shadow-md border border-slate-200 hover:shadow-lg transition-shadow">
             <div class="flex items-center gap-3 mb-6">
                 <div class="bg-amber-100 p-3 rounded-lg">
@@ -94,23 +95,18 @@
                     <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
                     <p class="text-slate-700 text-sm leading-relaxed">Смена профессии в зрелом возрасте</p>
                 </div>
-            </div>
-        </div>
-        
-        <div class="bg-white p-8 rounded-xl shadow-md border border-slate-200 hover:shadow-lg transition-shadow flex flex-col justify-center">
-            <div class="bg-slate-100 p-6 rounded-lg border-l-4 border-soft-brown">
-                <div class="flex items-center gap-2 mb-3">
-                    <div class="w-8 h-8 bg-soft-brown rounded-full flex items-center justify-center text-white font-bold text-sm">→</div>
-                    <strong class="text-soft-brown">Сейчас</strong>
+                
+                <div class="bg-slate-100 p-4 rounded-lg border-l-4 border-soft-brown">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="w-7 h-7 bg-soft-brown rounded-full flex items-center justify-center text-white font-bold text-xs">→</div>
+                        <strong class="text-soft-brown text-sm">Сейчас</strong>
+                    </div>
+                    <p class="text-slate-700 text-sm mb-2">Я снова в переходе — думаю о том, чтобы полностью перейти в психологию и оставить IT</p>
+                    <p class="text-xs italic text-slate-600">Мне близка тема кризисов и перемен — я знаю, как они проживаются изнутри.</p>
                 </div>
-                <p class="text-slate-700 mb-3 text-sm">Я снова в переходе — думаю о том, чтобы полностью перейти в психологию и оставить IT</p>
-                <p class="text-sm italic text-slate-600">Мне близка тема кризисов и перемен — я знаю, как они проживаются изнутри.</p>
             </div>
         </div>
-    </div>
 
-    <!-- Опыт и Подходы в 2 колонки -->
-    <div class="grid lg:grid-cols-2 gap-8">
         <!-- Опыт и образование -->
         <div class="bg-white p-8 rounded-xl shadow-md border border-slate-200 hover:shadow-lg transition-shadow">
             <div class="flex items-center gap-3 mb-6">
@@ -137,32 +133,45 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Подходы -->
-        <div class="bg-white p-8 rounded-xl shadow-md border border-slate-200 hover:shadow-lg transition-shadow">
-            <div class="flex items-center gap-3 mb-6">
-                <div class="bg-amber-100 p-3 rounded-lg">
-                    <span class="material-symbols-outlined text-primary text-2xl">psychology</span>
-                </div>
-                <h3 class="text-xl font-heading font-bold text-soft-brown">Подходы в работе</h3>
+    <!-- Подходы на всю ширину -->
+    <div class="bg-gradient-to-r from-amber-50 to-slate-50 p-8 rounded-xl shadow-md border border-slate-200 hover:shadow-lg transition-shadow">
+        <div class="flex items-center justify-center gap-3 mb-8">
+            <div class="bg-amber-100 p-3 rounded-lg">
+                <span class="material-symbols-outlined text-primary text-2xl">psychology</span>
             </div>
-            <div class="space-y-3">
-                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
-                    Гештальт
-                </div>
-                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
-                    КПТ
-                </div>
-                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
-                    Трансактный анализ
-                </div>
-                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
-                    Процессуальная психология
-                </div>
-                <div class="bg-slate-100 p-4 rounded-lg border-l-4 border-soft-brown text-sm italic">
-                    Использую интегративный подход, комбинируя методы в зависимости от ваших потребностей
-                </div>
+            <h3 class="text-2xl font-heading font-bold text-soft-brown">Подходы в работе</h3>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border border-slate-200">
+                <div class="text-3xl mb-2">🎯</div>
+                <h4 class="font-heading font-semibold text-soft-brown mb-1">Гештальт</h4>
+                <p class="text-xs text-slate-600">Контакт и осознанность</p>
             </div>
+            
+            <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border border-slate-200">
+                <div class="text-3xl mb-2">🧠</div>
+                <h4 class="font-heading font-semibold text-soft-brown mb-1">КПТ</h4>
+                <p class="text-xs text-slate-600">Мысли и убеждения</p>
+            </div>
+            
+            <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border border-slate-200">
+                <div class="text-3xl mb-2">🔄</div>
+                <h4 class="font-heading font-semibold text-soft-brown mb-1">Трансактный анализ</h4>
+                <p class="text-xs text-slate-600">Паттерны общения</p>
+            </div>
+            
+            <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border border-slate-200">
+                <div class="text-3xl mb-2">🌊</div>
+                <h4 class="font-heading font-semibold text-soft-brown mb-1">Процессуальная</h4>
+                <p class="text-xs text-slate-600">Телесные сигналы</p>
+            </div>
+        </div>
+        
+        <div class="bg-white/70 p-5 rounded-lg text-center border border-slate-200">
+            <p class="text-slate-700 italic">✨ Использую интегративный подход, комбинируя методы в зависимости от ваших потребностей</p>
         </div>
     </div>
 </section>
