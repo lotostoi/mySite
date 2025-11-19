@@ -18,11 +18,10 @@
                 <div class="relative w-full h-80 lg:h-full max-w-sm lg:max-w-none lg:w-auto rounded-full lg:rounded-none overflow-hidden bg-amber-100 flex items-center justify-center">
                     <img alt="Фото психолога Анны Волковой, улыбающейся и располагающей к себе" 
                          class="w-full h-full object-cover object-center lg:object-contain transform scale-125 lg:scale-100 -translate-y-4 lg:translate-y-0" 
-                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6nOgdochMdNj32NYRu4DTlrUXXMDqFqRWACjQs1H3jvnkk_lxdxjwyN0bsCKO-m_s_thU34tEYc8wRfWjV3x39QYBxlEfnY8MQ61Hy27R8tYwcheZeiWhMFF8QZRIx7YWiwlo_RVudrRlz_3JKaOWyg02UxYuHJvWvb0jK3LXVArhMM6y-MAhv7QbKLwe40M92t1OsxTUgzvS588UPOHgrfvtVIZT_CzNF5eoqF2xAP93chPGwitNx_pFxIFulu7SaqhRnoFD0DU"/>
+                         src="{{ asset('photo/IMG_7896_resized.jpeg') }}"/>
                     <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-l from-light-peach via-light-peach/70 to-transparent"></div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
