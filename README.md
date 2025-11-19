@@ -1,17 +1,11 @@
-# Сайт психолога Анны Волковой
+# Psychologist Anna Volkova Website
 
-Сайт на Laravel с красивым landing page.
+Laravel website with beautiful landing page.
 
-## Требования
+## Quick Start
 
-- PHP 8.1+
-- MySQL 8.0+
-- Nginx
-- 2GB RAM минимум
-
-## Быстрый старт локально
-
-```bash
+Install dependencies:
+```
 composer install
 cp .env.example .env
 php artisan key:generate
@@ -19,38 +13,46 @@ php artisan migrate
 php artisan serve
 ```
 
-Откройте http://localhost:8000
+Open http://localhost:8000
 
-## Развертывание на Selectel
+## Server Requirements
 
-### Конфигурация сервера
+- PHP 8.1+
+- MySQL 8.0+
+- Nginx
+- 2GB RAM minimum
+
+## Deployment on Selectel
+
+### Server Config
 - 2 vCPU / 2 GB RAM / 20 GB SSD
 - Ubuntu 22.04
-- Цена: ~590 руб/мес
+- Cost: ~590 RUB/month
 
-### Установка на сервер
+### Installation Steps
 
-Подключитесь к серверу:
-```bash
+Connect to server:
+```
 ssh root@your_ip
 ```
 
-Установите необходимое ПО:
-```bash
+Install software:
+```
 apt update && apt upgrade -y
 apt install nginx php8.1-fpm php8.1-mysql php8.1-mbstring php8.1-xml php8.1-curl php8.1-zip mysql-server git -y
 
-# Установка Composer
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
 ```
 
-Создайте базу данных:
-```bash
+Create database:
+```
 mysql -u root -p
 ```
-```sql
+
+Run in MySQL:
+```
 CREATE DATABASE mysite CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 CREATE USER 'mysite_user'@'localhost' IDENTIFIED BY 'strong_password';
 GRANT ALL PRIVILEGES ON mysite.* TO 'mysite_user'@'localhost';
@@ -58,29 +60,29 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
-Клонируйте проект:
-```bash
+Clone and setup:
+```
 cd /var/www
 git clone https://github.com/lotostoi/mySite.git
 cd mySite
 composer install --no-dev --optimize-autoloader
 ```
 
-Настройте права:
-```bash
+Set permissions:
+```
 chown -R www-data:www-data /var/www/mySite
 chmod -R 755 /var/www/mySite
 chmod -R 775 /var/www/mySite/storage
 chmod -R 775 /var/www/mySite/bootstrap/cache
 ```
 
-Настройте .env:
-```bash
+Configure .env:
+```
 cp .env.example .env
 nano .env
 ```
 
-Измените в .env:
+Update .env file:
 ```
 APP_ENV=production
 APP_DEBUG=false
@@ -89,8 +91,8 @@ DB_USERNAME=mysite_user
 DB_PASSWORD=strong_password
 ```
 
-Запустите миграции:
-```bash
+Run migrations:
+```
 php artisan key:generate
 php artisan migrate --force
 php artisan config:cache
@@ -98,13 +100,13 @@ php artisan route:cache
 php artisan view:cache
 ```
 
-Настройте Nginx:
-```bash
+Configure Nginx:
+```
 nano /etc/nginx/sites-available/mysite
 ```
 
-Вставьте конфигурацию:
-```nginx
+Add configuration:
+```
 server {
     listen 80;
     server_name your_domain_or_ip;
@@ -123,23 +125,23 @@ server {
 }
 ```
 
-Активируйте сайт:
-```bash
+Enable site:
+```
 ln -s /etc/nginx/sites-available/mysite /etc/nginx/sites-enabled/
 rm /etc/nginx/sites-enabled/default
 nginx -t
 systemctl restart nginx
 ```
 
-Установите SSL (опционально):
-```bash
+Install SSL:
+```
 apt install certbot python3-certbot-nginx -y
 certbot --nginx -d your_domain
 ```
 
-## Обновление на сервере
+## Update Project
 
-```bash
+```
 cd /var/www/mySite
 git pull origin master
 composer install --no-dev --optimize-autoloader
@@ -149,14 +151,7 @@ php artisan route:cache
 php artisan view:cache
 ```
 
-## Структура
-
-- `resources/views/welcome.blade.php` - главная страница
-- `routes/web.php` - маршруты
-- `public/` - публичная директория
-
-## Ссылки
+## Links
 
 - GitHub: https://github.com/lotostoi/mySite
-- Laravel Docs: https://laravel.com/docs
-
+- Laravel: https://laravel.com/docs
