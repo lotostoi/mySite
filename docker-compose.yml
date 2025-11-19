@@ -30,7 +30,7 @@ services:
       - DB_HOST=mysql
       - DB_PORT=3306
       - DB_DATABASE=${DB_DATABASE:-mysite}
-      - DB_USERNAME=${DB_USERNAME:-root}
+      - DB_USERNAME=root
       - DB_PASSWORD=${DB_PASSWORD:-secret}
     depends_on:
       - mysql
@@ -45,8 +45,7 @@ services:
     environment:
       MYSQL_DATABASE: ${DB_DATABASE:-mysite}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-secret}
-      MYSQL_USER: ${DB_USERNAME:-mysite_user}
-      MYSQL_PASSWORD: ${DB_PASSWORD:-secret}
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
     volumes:
       - mysql_data:/var/lib/mysql
     ports:
