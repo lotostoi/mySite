@@ -16,9 +16,9 @@
         <div class="space-y-3 text-slate-700 leading-relaxed">
             <p>Здравствуйте, я Александр. Уже <strong class="text-soft-brown">15 лет моя жизнь связана с психологией</strong> — сначала я проходил этот путь как клиент, а теперь помогаю людям находить опору и контакт с собой.</p>
             <p>Для меня работа с человеком — это не столько про техники и подходы, сколько про <strong class="text-soft-brown">доверие, контакт и живое человеческое присутствие</strong>.</p>
-            <p class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary mt-4">
+            <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary mt-4">
                 💡 Из собственного опыта знаю, как непросто выбрать специалиста, с которым действительно чувствуешь понимание и безопасность. Поэтому можно предварительно созвониться (бесплатно, 15 минут) — просто познакомиться и понять, подходим ли мы друг другу.
-            </p>
+            </div>
         </div>
     </div>
 
@@ -32,22 +32,19 @@
                 </div>
                 <h3 class="text-xl font-heading font-bold text-soft-brown">Немного обо мне</h3>
             </div>
-            <div class="space-y-3 text-slate-700">
-                <p class="flex items-start gap-2">
-                    <span class="text-primary mt-1">▪</span>
-                    <span>Мне 42 года, я женат</span>
-                </p>
-                <p class="flex items-start gap-2">
-                    <span class="text-primary mt-1">▪</span>
-                    <span>Работал в научно-исследовательском институте, защитил кандидатскую диссертацию</span>
-                </p>
-                <p class="flex items-start gap-2">
-                    <span class="text-primary mt-1">▪</span>
-                    <span>Сменил профессию и ушёл в IT — вырос от программиста до тимлида</span>
-                </p>
-                <p class="text-sm bg-amber-50 p-3 rounded-lg mt-4 italic border-l-4 border-primary">
+            <div class="space-y-3">
+                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                    Мне 42 года, я женат
+                </div>
+                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                    Работал в научно-исследовательском институте, защитил кандидатскую диссертацию
+                </div>
+                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                    Сменил профессию и ушёл в IT — вырос от программиста до тимлида
+                </div>
+                <div class="bg-slate-100 p-4 rounded-lg border-l-4 border-soft-brown italic text-sm">
                     Эти опыты научили меня выдерживать кризисы, быть рядом с людьми и сохранять контакт, даже когда тяжело.
-                </p>
+                </div>
             </div>
         </div>
 
@@ -59,14 +56,14 @@
                 </div>
                 <h3 class="text-xl font-heading font-bold text-soft-brown">Что для меня важно</h3>
             </div>
-            <div class="space-y-4 text-slate-700">
+            <div class="space-y-3">
                 <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
-                    <strong class="text-soft-brown">20+ лет вместе с женой</strong><br/>
-                    <span class="text-sm">Первые годы были очень трудными, но мы не сдавались. Сегодня это моя главная опора и гордость.</span>
+                    <strong class="text-soft-brown block mb-1">20+ лет вместе с женой</strong>
+                    <span class="text-sm text-slate-700">Первые годы были очень трудными, но мы не сдавались. Сегодня это моя главная опора и гордость.</span>
                 </div>
                 <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
-                    <strong class="text-soft-brown">1.5 года тимлидства</strong><br/>
-                    <span class="text-sm">От меня не ушёл ни один человек из команды. Для меня это про доверие и уважение — и в работе, и в жизни.</span>
+                    <strong class="text-soft-brown block mb-1">1.5 года тимлидства</strong>
+                    <span class="text-sm text-slate-700">От меня не ушёл ни один человек из команды. Для меня это про доверие и уважение — и в работе, и в жизни.</span>
                 </div>
             </div>
         </div>
@@ -81,37 +78,27 @@
             <h3 class="text-xl font-heading font-bold text-soft-brown">Мои кризисы</h3>
         </div>
         
-        <div class="space-y-6 relative before:content-[''] before:absolute before:left-6 before:top-0 before:bottom-0 before:w-0.5 before:bg-slate-200">
-            <div class="flex gap-6 relative">
-                <div class="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold z-10">1</div>
-                <div class="flex-1 pb-6">
-                    <p class="text-slate-700 leading-relaxed">Во время сложных отношений с женой и болезни отца, когда я впервые пришёл к психологу</p>
-                </div>
+        <div class="space-y-3">
+            <div class="flex gap-4 bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                <p class="text-slate-700 leading-relaxed">Во время сложных отношений с женой и болезни отца, когда я впервые пришёл к психологу</p>
             </div>
             
-            <div class="flex gap-6 relative">
-                <div class="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold z-10">2</div>
-                <div class="flex-1 pb-6">
-                    <p class="text-slate-700 leading-relaxed">Смерть матери</p>
-                </div>
+            <div class="flex gap-4 bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                <p class="text-slate-700 leading-relaxed">Смерть матери</p>
             </div>
             
-            <div class="flex gap-6 relative">
-                <div class="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold z-10">3</div>
-                <div class="flex-1 pb-6">
-                    <p class="text-slate-700 leading-relaxed">Смена профессии в зрелом возрасте</p>
-                </div>
+            <div class="flex gap-4 bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                <p class="text-slate-700 leading-relaxed">Смена профессии в зрелом возрасте</p>
             </div>
             
-            <div class="flex gap-6 relative">
-                <div class="flex-shrink-0 w-12 h-12 bg-soft-brown rounded-full flex items-center justify-center text-white font-bold z-10">→</div>
-                <div class="flex-1">
-                    <p class="text-slate-700 leading-relaxed mb-3">
-                        Сейчас я снова в переходе — думаю о том, чтобы полностью перейти в психологию и оставить IT
-                    </p>
-                    <p class="text-sm bg-amber-50 p-3 rounded-lg border-l-4 border-primary">
-                        Мне близка тема кризисов и перемен — я знаю, как они проживаются изнутри.
-                    </p>
+            <div class="flex gap-4 bg-slate-100 p-4 rounded-lg border-l-4 border-soft-brown">
+                <div class="flex-shrink-0 w-8 h-8 bg-soft-brown rounded-full flex items-center justify-center text-white font-bold text-sm">→</div>
+                <div class="text-slate-700 leading-relaxed">
+                    <p class="mb-2">Сейчас я снова в переходе — думаю о том, чтобы полностью перейти в психологию и оставить IT</p>
+                    <p class="text-sm italic">Мне близка тема кризисов и перемен — я знаю, как они проживаются изнутри.</p>
                 </div>
             </div>
         </div>
@@ -128,25 +115,20 @@
                 <h3 class="text-xl font-heading font-bold text-soft-brown">Опыт и образование</h3>
             </div>
             <div class="space-y-3">
-                <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
-                    <span class="text-primary text-xl">📚</span>
-                    <span class="text-slate-700 text-sm">Более 12 лет личной терапии (с перерывами)</span>
+                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                    Более 12 лет личной терапии (с перерывами)
                 </div>
-                <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
-                    <span class="text-primary text-xl">👥</span>
-                    <span class="text-slate-700 text-sm">10 лет участия в групповой терапии</span>
+                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                    10 лет участия в групповой терапии
                 </div>
-                <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
-                    <span class="text-primary text-xl">💼</span>
-                    <span class="text-slate-700 text-sm">Практикую индивидуальные консультации онлайн и очно</span>
+                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                    Практикую индивидуальные консультации онлайн и очно
                 </div>
-                <div class="flex items-start gap-3 p-3 bg-amber-50 rounded-lg border-l-4 border-primary">
-                    <span class="text-primary text-xl">🎓</span>
-                    <span class="text-slate-700 text-sm">Авторская школа Интегральной Гуманистической Психотерапии (Первый университет проф. В.В. Макарова)</span>
+                <div class="bg-slate-100 p-4 rounded-lg border-l-4 border-soft-brown text-sm">
+                    Авторская школа Интегральной Гуманистической Психотерапии (Первый университет проф. В.В. Макарова)
                 </div>
-                <div class="flex items-start gap-3 p-3 bg-amber-50 rounded-lg border-l-4 border-primary">
-                    <span class="text-primary text-xl">🎓</span>
-                    <span class="text-slate-700 text-sm">Московский гештальт-институт (заканчиваю вторую ступень)</span>
+                <div class="bg-slate-100 p-4 rounded-lg border-l-4 border-soft-brown text-sm">
+                    Московский гештальт-институт (заканчиваю вторую ступень)
                 </div>
             </div>
         </div>
@@ -159,15 +141,23 @@
                 </div>
                 <h3 class="text-xl font-heading font-bold text-soft-brown">Подходы в работе</h3>
             </div>
-            <div class="flex flex-wrap gap-3 mb-6">
-                <span class="px-4 py-2 bg-amber-50 rounded-full text-soft-brown font-medium border border-slate-200">Гештальт</span>
-                <span class="px-4 py-2 bg-amber-50 rounded-full text-soft-brown font-medium border border-slate-200">КПТ</span>
-                <span class="px-4 py-2 bg-amber-50 rounded-full text-soft-brown font-medium border border-slate-200">Трансактный анализ</span>
-                <span class="px-4 py-2 bg-amber-50 rounded-full text-soft-brown font-medium border border-slate-200">Процессуальная психология</span>
+            <div class="space-y-3">
+                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                    Гештальт
+                </div>
+                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                    КПТ
+                </div>
+                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                    Трансактный анализ
+                </div>
+                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                    Процессуальная психология
+                </div>
+                <div class="bg-slate-100 p-4 rounded-lg border-l-4 border-soft-brown text-sm italic">
+                    Использую интегративный подход, комбинируя методы в зависимости от ваших потребностей
+                </div>
             </div>
-            <p class="text-slate-600 text-sm italic bg-amber-50 p-3 rounded-lg border-l-4 border-primary">
-                Использую интегративный подход, комбинируя методы в зависимости от ваших потребностей
-            </p>
         </div>
     </div>
 </section>
