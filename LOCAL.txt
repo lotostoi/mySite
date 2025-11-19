@@ -1,0 +1,222 @@
+ИНСТРУКЦИЯ ПО ЛОКАЛЬНОЙ УСТАНОВКЕ
+==================================
+
+ТРЕБОВАНИЯ
+----------
+- PHP 8.1 или выше
+- Composer
+- MySQL 8.0 или выше
+- Git
+
+
+ПРОВЕРКА УСТАНОВЛЕННЫХ ВЕРСИЙ
+------------------------------
+php --version
+composer --version
+mysql --version
+
+
+ШАГ 1: Клонирование проекта
+----------------------------
+git clone https://github.com/lotostoi/mySite.git
+cd mySite
+
+
+ШАГ 2: Установка зависимостей
+------------------------------
+composer install
+
+Эта команда установит все необходимые пакеты Laravel.
+Подождите несколько минут, пока все скачается.
+
+
+ШАГ 3: Создание файла окружения
+--------------------------------
+cp .env.example .env
+
+Или на Windows:
+copy .env.example .env
+
+
+ШАГ 4: Генерация ключа приложения
+----------------------------------
+php artisan key:generate
+
+Эта команда создаст уникальный ключ безопасности.
+
+
+ШАГ 5: Создание базы данных
+----------------------------
+
+Вариант А - SQLite (проще для разработки):
+-------------------------------------------
+Уже создана автоматически! База находится в database/database.sqlite
+Просто переходите к Шагу 6.
+
+
+Вариант Б - MySQL (если нужна MySQL):
+--------------------------------------
+1. Запустите MySQL:
+   mysql -u root -p
+
+2. Создайте базу данных:
+   CREATE DATABASE mysite CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   EXIT;
+
+3. Откройте файл .env и настройте подключение:
+   nano .env
+
+   Найдите секцию DB и измените:
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=mysite
+   DB_USERNAME=root
+   DB_PASSWORD=ваш_пароль_mysql
+
+
+ШАГ 6: Запуск миграций
+-----------------------
+php artisan migrate
+
+Эта команда создаст все необходимые таблицы в базе данных.
+
+
+ШАГ 7: Запуск сервера разработки
+---------------------------------
+php artisan serve
+
+Сервер запустится на: http://localhost:8000
+
+Откройте браузер и перейдите по адресу:
+http://localhost:8000
+
+Вы должны увидеть сайт психолога Анны Волковой!
+
+
+ОСТАНОВКА СЕРВЕРА
+-----------------
+Нажмите Ctrl+C в терминале
+
+
+ПЕРЕЗАПУСК СЕРВЕРА
+------------------
+php artisan serve
+
+
+ЗАПУСК НА ДРУГОМ ПОРТУ
+-----------------------
+Если порт 8000 занят:
+php artisan serve --port=8080
+
+Откройте: http://localhost:8080
+
+
+ПОЛЕЗНЫЕ КОМАНДЫ
+----------------
+
+Очистка кеша:
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+
+Пересоздание базы данных (УДАЛИТ ВСЕ ДАННЫЕ!):
+php artisan migrate:fresh
+
+Просмотр всех маршрутов:
+php artisan route:list
+
+Вход в интерактивную консоль:
+php artisan tinker
+
+
+СТРУКТУРА ПРОЕКТА
+-----------------
+app/                    - Основной код приложения
+├── Http/
+│   └── Controllers/    - Контроллеры
+└── Models/             - Модели базы данных
+
+resources/
+├── views/              - Шаблоны (HTML)
+│   └── welcome.blade.php  - Главная страница
+├── css/                - Стили
+└── js/                 - JavaScript
+
+routes/
+└── web.php             - Маршруты сайта
+
+public/                 - Публичные файлы (корень сайта)
+├── index.php           - Точка входа
+└── ...
+
+database/
+├── migrations/         - Миграции базы данных
+└── database.sqlite     - База данных SQLite
+
+.env                    - Конфигурация (НЕ добавлять в Git!)
+composer.json           - Зависимости PHP
+
+
+РЕДАКТИРОВАНИЕ САЙТА
+--------------------
+
+Главная страница:
+resources/views/welcome.blade.php
+
+Маршруты:
+routes/web.php
+
+Стили и JS:
+resources/css/app.css
+resources/js/app.js
+
+
+ЧАСТЫЕ ПРОБЛЕМЫ
+---------------
+
+Ошибка: "Class 'PDO' not found"
+Решение: Установите расширение PDO для PHP
+brew install php@8.1 (macOS)
+
+Ошибка: "Permission denied"
+Решение: Дайте права на папки:
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
+
+Ошибка: "composer command not found"
+Решение: Установите Composer:
+https://getcomposer.org/download/
+
+Ошибка: "No application encryption key has been specified"
+Решение: 
+php artisan key:generate
+
+База данных не создается:
+1. Проверьте настройки в .env
+2. Убедитесь что MySQL запущен
+3. Проверьте пароль и логин
+
+
+ОБНОВЛЕНИЕ ПРОЕКТА
+------------------
+git pull origin master
+composer install
+php artisan migrate
+php artisan cache:clear
+
+
+ЧТО ДАЛЬШЕ?
+-----------
+1. Изучите Laravel документацию: https://laravel.com/docs
+2. Отредактируйте страницу в resources/views/welcome.blade.php
+3. Добавьте свои маршруты в routes/web.php
+4. Когда будете готовы - разверните на сервере (см. DEPLOY.txt)
+
+
+КОНТАКТЫ
+--------
+GitHub: https://github.com/lotostoi/mySite
+Laravel Docs: https://laravel.com/docs
+
