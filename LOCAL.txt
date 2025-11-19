@@ -190,7 +190,7 @@ chmod -R 775 bootstrap/cache
 https://getcomposer.org/download/
 
 Ошибка: "No application encryption key has been specified"
-Решение: 
+Решение:
 php artisan key:generate
 
 База данных не создается:
@@ -219,4 +219,3 @@ php artisan cache:clear
 --------
 GitHub: https://github.com/lotostoi/mySite
 Laravel Docs: https://laravel.com/docs
-

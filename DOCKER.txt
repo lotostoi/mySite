@@ -1,0 +1,356 @@
+ИНСТРУКЦИЯ ПО ЗАПУСКУ С DOCKER
+================================
+
+ПРЕИМУЩЕСТВА DOCKER
+--------------------
+✅ Не нужно устанавливать PHP, MySQL, Nginx
+✅ Работает одинаково на всех системах
+✅ Один файл настройки для всего
+✅ Легко обновлять и откатывать
+✅ Быстрое развертывание
+
+
+ТРЕБОВАНИЯ
+----------
+- Docker Desktop (Mac/Windows) или Docker Engine (Linux)
+- Docker Compose
+- Git
+
+
+УСТАНОВКА DOCKER
+----------------
+
+Mac:
+https://docs.docker.com/desktop/install/mac-install/
+
+Windows:
+https://docs.docker.com/desktop/install/windows-install/
+
+Linux:
+curl -fsSL https://get.docker.com | sh
+
+
+ПРОВЕРКА УСТАНОВКИ
+------------------
+docker --version
+docker-compose --version
+
+
+═══════════════════════════════════════════════
+ЛОКАЛЬНАЯ РАЗРАБОТКА
+═══════════════════════════════════════════════
+
+ШАГ 1: Клонирование проекта
+----------------------------
+git clone https://github.com/lotostoi/mySite.git
+cd mySite
+
+
+ШАГ 2: Настройка .env
+----------------------
+cp .env.example .env
+
+Откройте .env и измените:
+DB_HOST=mysql
+DB_DATABASE=mysite
+DB_USERNAME=mysite_user
+DB_PASSWORD=secret
+
+
+ШАГ 3: Запуск Docker
+---------------------
+docker-compose up -d
+
+Эта команда:
+- Скачает все нужные образы (Nginx, PHP, MySQL)
+- Создаст контейнеры
+- Запустит все сервисы
+
+Первый запуск займет 3-5 минут.
+
+
+ШАГ 4: Установка зависимостей
+------------------------------
+docker-compose exec app composer install
+
+
+ШАГ 5: Генерация ключа
+-----------------------
+docker-compose exec app php artisan key:generate
+
+
+ШАГ 6: Запуск миграций
+-----------------------
+docker-compose exec app php artisan migrate
+
+
+ШАГ 7: Готово!
+---------------
+Откройте в браузере: http://localhost
+
+Вы должны увидеть сайт психолога! 🎉
+
+
+ПОЛЕЗНЫЕ КОМАНДЫ
+----------------
+
+Остановить контейнеры:
+docker-compose stop
+
+Запустить снова:
+docker-compose start
+
+Перезапустить:
+docker-compose restart
+
+Остановить и удалить контейнеры:
+docker-compose down
+
+Посмотреть логи:
+docker-compose logs
+
+Логи конкретного сервиса:
+docker-compose logs app
+docker-compose logs nginx
+docker-compose logs mysql
+
+Войти в контейнер:
+docker-compose exec app sh
+
+Выполнить artisan команду:
+docker-compose exec app php artisan cache:clear
+docker-compose exec app php artisan migrate
+docker-compose exec app php artisan route:list
+
+Пересобрать контейнеры (после изменения Dockerfile):
+docker-compose up -d --build
+
+
+РАБОТА С БАЗОЙ ДАННЫХ
+----------------------
+
+Подключиться к MySQL:
+docker-compose exec mysql mysql -u mysite_user -psecret mysite
+
+Экспорт базы:
+docker-compose exec mysql mysqldump -u mysite_user -psecret mysite > backup.sql
+
+Импорт базы:
+docker-compose exec -T mysql mysql -u mysite_user -psecret mysite < backup.sql
+
+Очистить и пересоздать БД:
+docker-compose exec app php artisan migrate:fresh
+
+
+═══════════════════════════════════════════════
+РАЗВЕРТЫВАНИЕ НА СЕРВЕРЕ SELECTEL
+═══════════════════════════════════════════════
+
+КОНФИГУРАЦИЯ СЕРВЕРА
+--------------------
+Минимум: 2 vCPU / 2 GB RAM / 20 GB SSD (~590₽/мес)
+Рекомендую: 2 vCPU / 4 GB RAM / 40 GB SSD (~900₽/мес)
+ОС: Ubuntu 22.04 LTS
+
+
+ШАГ 1: Подключение к серверу
+-----------------------------
+ssh root@ваш_ip
+
+
+ШАГ 2: Установка Docker
+------------------------
+# Обновление системы
+apt update && apt upgrade -y
+
+# Установка Docker
+curl -fsSL https://get.docker.com | sh
+
+# Установка Docker Compose
+apt install docker-compose -y
+
+# Автозапуск Docker
+systemctl enable docker
+systemctl start docker
+
+
+ШАГ 3: Установка Git
+---------------------
+apt install git -y
+
+
+ШАГ 4: Клонирование проекта
+----------------------------
+cd /var/www
+git clone https://github.com/lotostoi/mySite.git
+cd mySite
+
+
+ШАГ 5: Настройка .env для продакшена
+-------------------------------------
+cp .env.example .env
+nano .env
+
+Измените:
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=http://ваш_домен_или_ip
+
+DB_HOST=mysql
+DB_DATABASE=mysite
+DB_USERNAME=mysite_user
+DB_PASSWORD=СИЛЬНЫЙ_ПАРОЛЬ_ЗДЕСЬ
+
+
+ШАГ 6: Запуск Docker
+---------------------
+docker-compose up -d
+
+
+ШАГ 7: Установка зависимостей
+------------------------------
+docker-compose exec app composer install --no-dev --optimize-autoloader
+
+
+ШАГ 8: Настройка Laravel
+-------------------------
+docker-compose exec app php artisan key:generate
+docker-compose exec app php artisan migrate --force
+docker-compose exec app php artisan config:cache
+docker-compose exec app php artisan route:cache
+docker-compose exec app php artisan view:cache
+
+
+ШАГ 9: Настройка прав
+----------------------
+chown -R www-data:www-data /var/www/mySite
+
+
+ШАГ 10: Открыть порт 80
+------------------------
+ufw allow 80
+ufw allow 443
+
+
+ШАГ 11: Готово!
+----------------
+Откройте: http://ваш_ip
+
+Сайт работает! 🚀
+
+
+НАСТРОЙКА ДОМЕНА (опционально)
+-------------------------------
+Если у вас есть домен, укажите A-запись на IP сервера.
+
+Потом в .env измените:
+APP_URL=http://ваш_домен.ru
+
+
+УСТАНОВКА SSL СЕРТИФИКАТА
+--------------------------
+Для HTTPS нужно добавить отдельный контейнер с Certbot.
+
+Простой способ - использовать Cloudflare (бесплатный SSL).
+
+
+ОБНОВЛЕНИЕ ПРОЕКТА
+------------------
+cd /var/www/mySite
+git pull origin master
+docker-compose exec app composer install --no-dev --optimize-autoloader
+docker-compose exec app php artisan migrate --force
+docker-compose exec app php artisan config:cache
+docker-compose exec app php artisan route:cache
+docker-compose exec app php artisan view:cache
+docker-compose restart
+
+
+АВТОЗАПУСК ПРИ ПЕРЕЗАГРУЗКЕ
+----------------------------
+Docker автоматически запустит контейнеры при перезагрузке сервера
+благодаря параметру restart: unless-stopped
+
+
+МОНИТОРИНГ
+----------
+Посмотреть статус контейнеров:
+docker-compose ps
+
+Использование ресурсов:
+docker stats
+
+Логи приложения:
+docker-compose logs -f app
+
+
+РЕЗЕРВНОЕ КОПИРОВАНИЕ
+----------------------
+Создать бэкап базы:
+docker-compose exec mysql mysqldump -u mysite_user -psecret mysite > backup_$(date +%Y%m%d).sql
+
+Автоматический бэкап (добавить в crontab):
+0 3 * * * cd /var/www/mySite && docker-compose exec mysql mysqldump -u mysite_user -psecret mysite > /root/backups/backup_$(date +\%Y\%m\%d).sql
+
+
+ПРОБЛЕМЫ И РЕШЕНИЯ
+------------------
+
+Ошибка: "Cannot connect to Docker daemon"
+Решение:
+systemctl start docker
+
+Ошибка: "Port 80 already in use"
+Решение:
+# Проверить что занимает порт
+lsof -i :80
+# Остановить nginx если он был установлен
+systemctl stop nginx
+systemctl disable nginx
+
+Контейнер постоянно перезапускается:
+docker-compose logs app
+
+Медленно работает:
+# Увеличьте RAM сервера до 4 GB
+
+База данных не сохраняется:
+# Проверьте volume в docker-compose.yml
+
+
+СТРУКТУРА DOCKER ПРОЕКТА
+------------------------
+docker-compose.yml          - Конфигурация сервисов
+docker/
+├── Dockerfile              - Образ PHP приложения
+└── nginx/
+    └── nginx.conf          - Конфигурация Nginx
+
+
+СРАВНЕНИЕ ПРОИЗВОДИТЕЛЬНОСТИ
+-----------------------------
+Без Docker:
+- Запуск: мгновенно
+- RAM: ~1.2 GB
+- Установка: 30-40 минут ручной работы
+
+С Docker:
+- Запуск: 2-3 секунды
+- RAM: ~1.5 GB
+- Установка: 5 минут, почти автоматически
+
+
+ИТОГО
+-----
+Docker упрощает развертывание и делает его повторяемым.
+Небольшие накладные расходы (~300 MB RAM) окупаются удобством.
+
+
+ССЫЛКИ
+------
+Docker Hub: https://hub.docker.com
+Docker Docs: https://docs.docker.com
+Compose Docs: https://docs.docker.com/compose/
+Laravel Docs: https://laravel.com/docs
+GitHub: https://github.com/lotostoi/mySite
+

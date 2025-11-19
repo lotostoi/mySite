@@ -179,4 +179,3 @@ public/ - публичная директория
 ------
 GitHub: https://github.com/lotostoi/mySite
 Laravel: https://laravel.com/docs
-
