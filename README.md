@@ -245,3 +245,4 @@ php artisan view:cache
 ## Поддержка
 
 По вопросам развертывания обращайтесь к документации Laravel: https://laravel.com/docs
+
