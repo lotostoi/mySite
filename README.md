@@ -1,17 +1,12 @@
-# Psychologist Anna Volkova Website
+# Laravel Site - Anna Volkova Psychologist
 
-Laravel website with beautiful landing page.
+## Local Setup
 
-## Quick Start
-
-Install dependencies:
-```
 composer install
 cp .env.example .env
 php artisan key:generate
 php artisan migrate
 php artisan serve
-```
 
 Open http://localhost:8000
 
@@ -20,96 +15,70 @@ Open http://localhost:8000
 - PHP 8.1+
 - MySQL 8.0+
 - Nginx
-- 2GB RAM minimum
+- 2GB RAM
 
-## Deployment on Selectel
+## Deploy to Selectel
 
-### Server Config
-- 2 vCPU / 2 GB RAM / 20 GB SSD
-- Ubuntu 22.04
-- Cost: ~590 RUB/month
+Server: 2 vCPU, 2 GB RAM, Ubuntu 22.04, ~590 RUB/month
 
-### Installation Steps
-
-Connect to server:
-```
+### Step 1: Connect
 ssh root@your_ip
-```
 
-Install software:
-```
+### Step 2: Install software
 apt update && apt upgrade -y
 apt install nginx php8.1-fpm php8.1-mysql php8.1-mbstring php8.1-xml php8.1-curl php8.1-zip mysql-server git -y
 
+### Step 3: Install Composer
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
-```
 
-Create database:
-```
+### Step 4: Create database
 mysql -u root -p
-```
 
-Run in MySQL:
-```
-CREATE DATABASE mysite CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'mysite_user'@'localhost' IDENTIFIED BY 'strong_password';
+CREATE DATABASE mysite;
+CREATE USER 'mysite_user'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON mysite.* TO 'mysite_user'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
-```
 
-Clone and setup:
-```
+### Step 5: Clone project
 cd /var/www
 git clone https://github.com/lotostoi/mySite.git
 cd mySite
 composer install --no-dev --optimize-autoloader
-```
 
-Set permissions:
-```
+### Step 6: Set permissions
 chown -R www-data:www-data /var/www/mySite
 chmod -R 755 /var/www/mySite
 chmod -R 775 /var/www/mySite/storage
 chmod -R 775 /var/www/mySite/bootstrap/cache
-```
 
-Configure .env:
-```
+### Step 7: Configure .env
 cp .env.example .env
 nano .env
-```
 
-Update .env file:
-```
+Set in .env:
 APP_ENV=production
 APP_DEBUG=false
 DB_DATABASE=mysite
 DB_USERNAME=mysite_user
-DB_PASSWORD=strong_password
-```
+DB_PASSWORD=your_password
 
-Run migrations:
-```
+### Step 8: Run migrations
 php artisan key:generate
 php artisan migrate --force
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
-```
 
-Configure Nginx:
-```
+### Step 9: Configure Nginx
 nano /etc/nginx/sites-available/mysite
-```
 
-Add configuration:
-```
+Add:
 server {
     listen 80;
-    server_name your_domain_or_ip;
+    server_name your_domain;
     root /var/www/mySite/public;
     index index.php;
 
@@ -123,35 +92,22 @@ server {
         include fastcgi_params;
     }
 }
-```
 
-Enable site:
-```
+### Step 10: Enable site
 ln -s /etc/nginx/sites-available/mysite /etc/nginx/sites-enabled/
-rm /etc/nginx/sites-enabled/default
 nginx -t
 systemctl restart nginx
-```
 
-Install SSL:
-```
+### Step 11: SSL (optional)
 apt install certbot python3-certbot-nginx -y
 certbot --nginx -d your_domain
-```
 
-## Update Project
+## Update
 
-```
 cd /var/www/mySite
 git pull origin master
-composer install --no-dev --optimize-autoloader
+composer install --no-dev
 php artisan migrate --force
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
-```
-
-## Links
-
-- GitHub: https://github.com/lotostoi/mySite
-- Laravel: https://laravel.com/docs
