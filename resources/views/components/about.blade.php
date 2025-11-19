@@ -70,36 +70,41 @@
     </div>
 
     <!-- Мои кризисы -->
-    <div class="bg-white p-8 rounded-xl shadow-md border border-slate-200 mb-8 hover:shadow-lg transition-shadow">
-        <div class="flex items-center gap-3 mb-6">
-            <div class="bg-amber-100 p-3 rounded-lg">
-                <span class="material-symbols-outlined text-primary text-2xl">crisis_alert</span>
+    <div class="grid md:grid-cols-2 gap-8 mb-8">
+        <div class="bg-white p-8 rounded-xl shadow-md border border-slate-200 hover:shadow-lg transition-shadow">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-amber-100 p-3 rounded-lg">
+                    <span class="material-symbols-outlined text-primary text-2xl">crisis_alert</span>
+                </div>
+                <h3 class="text-xl font-heading font-bold text-soft-brown">Мои кризисы</h3>
             </div>
-            <h3 class="text-xl font-heading font-bold text-soft-brown">Мои кризисы</h3>
+            
+            <div class="space-y-3">
+                <div class="flex gap-3 bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                    <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                    <p class="text-slate-700 text-sm leading-relaxed">Во время сложных отношений с женой и болезни отца, когда я впервые пришёл к психологу</p>
+                </div>
+                
+                <div class="flex gap-3 bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                    <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                    <p class="text-slate-700 text-sm leading-relaxed">Смерть матери</p>
+                </div>
+                
+                <div class="flex gap-3 bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
+                    <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                    <p class="text-slate-700 text-sm leading-relaxed">Смена профессии в зрелом возрасте</p>
+                </div>
+            </div>
         </div>
         
-        <div class="space-y-3">
-            <div class="flex gap-4 bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
-                <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
-                <p class="text-slate-700 leading-relaxed">Во время сложных отношений с женой и болезни отца, когда я впервые пришёл к психологу</p>
-            </div>
-            
-            <div class="flex gap-4 bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
-                <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
-                <p class="text-slate-700 leading-relaxed">Смерть матери</p>
-            </div>
-            
-            <div class="flex gap-4 bg-amber-50 p-4 rounded-lg border-l-4 border-primary">
-                <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
-                <p class="text-slate-700 leading-relaxed">Смена профессии в зрелом возрасте</p>
-            </div>
-            
-            <div class="flex gap-4 bg-slate-100 p-4 rounded-lg border-l-4 border-soft-brown">
-                <div class="flex-shrink-0 w-8 h-8 bg-soft-brown rounded-full flex items-center justify-center text-white font-bold text-sm">→</div>
-                <div class="text-slate-700 leading-relaxed">
-                    <p class="mb-2">Сейчас я снова в переходе — думаю о том, чтобы полностью перейти в психологию и оставить IT</p>
-                    <p class="text-sm italic">Мне близка тема кризисов и перемен — я знаю, как они проживаются изнутри.</p>
+        <div class="bg-white p-8 rounded-xl shadow-md border border-slate-200 hover:shadow-lg transition-shadow flex flex-col justify-center">
+            <div class="bg-slate-100 p-6 rounded-lg border-l-4 border-soft-brown">
+                <div class="flex items-center gap-2 mb-3">
+                    <div class="w-8 h-8 bg-soft-brown rounded-full flex items-center justify-center text-white font-bold text-sm">→</div>
+                    <strong class="text-soft-brown">Сейчас</strong>
                 </div>
+                <p class="text-slate-700 mb-3 text-sm">Я снова в переходе — думаю о том, чтобы полностью перейти в психологию и оставить IT</p>
+                <p class="text-sm italic text-slate-600">Мне близка тема кризисов и перемен — я знаю, как они проживаются изнутри.</p>
             </div>
         </div>
     </div>
