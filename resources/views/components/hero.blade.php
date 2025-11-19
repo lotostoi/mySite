@@ -19,7 +19,6 @@
                     <img alt="Фото психолога Анны Волковой, улыбающейся и располагающей к себе" 
                          class="w-full h-full object-cover object-center lg:object-contain transform scale-125 lg:scale-100 -translate-y-4 lg:translate-y-0" 
                          src="{{ asset('photo/IMG_7896_resized.jpeg') }}"/>
-                    <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-l from-light-peach via-light-peach/70 to-transparent"></div>
                 </div>
             </div>
         </div>
